@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 24, 2018 at 01:26 PM
+-- Generation Time: May 28, 2018 at 01:50 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -39,7 +39,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`a_id`, `user_name`, `password`) VALUES
-(1, 'admin', 'admin');
+(1, 'admin', 'admin123');
 
 -- --------------------------------------------------------
 
@@ -61,10 +61,7 @@ CREATE TABLE `bill` (
 --
 
 INSERT INTO `bill` (`bill_no`, `o_id`, `c_id`, `total_amount`, `status`, `date`) VALUES
-(1, 1, 1, 500, 1, '2018-05-15'),
-(4, 4, 1, 40, 1, '2018-05-15'),
-(5, 5, 6, 140, 0, '2018-05-20'),
-(6, 6, 6, 100, 1, '2018-05-20');
+(9, 9, 9, 320, 1, '2018-05-28');
 
 -- --------------------------------------------------------
 
@@ -85,9 +82,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`c_id`, `name`, `address`, `phone_no`, `password`) VALUES
-(1, 'Jon', 'Jorhat, Assam', '123', '$2y$10$4tdsDEyiJriCFdBmCW95r.xOoU3RfUFecPFTiGOeaXEeKQbBzMSq6'),
-(6, 'Zyan', 'CA', '999', '$2y$10$cGlDYWbtrG56k0hT9XkLX.sZxllPAt.MFCGu87kHz53qtYxrYAkCW'),
-(7, 'ts', 'abc', '0580', '$2y$10$DdFtbrBkcBM5zO9gBQnYP.DGPDYIvTm5vod7GrXhkmBj5DCJxmKfm');
+(9, 'Zyandeep Baruah', 'Jorhat', '8638367851', '$2y$10$S6j/1FmAEWqnidIOnA99N.xHXMP6IKANswJocgllNcRStWWaymiBm'),
+(10, 'Trinayan', 'Jorhat', '9577509923', '$2y$10$Tbg2x6SRK4USuxvi9LUage.I.kOy55nTb8Go8YIor9IWK/yzbUBbS');
 
 -- --------------------------------------------------------
 
@@ -97,11 +93,11 @@ INSERT INTO `customer` (`c_id`, `name`, `address`, `phone_no`, `password`) VALUE
 
 CREATE TABLE `item` (
   `im_id` int(11) NOT NULL,
-  `i_name` varchar(50) NOT NULL,
+  `i_name` varchar(200) NOT NULL,
   `category` varchar(30) NOT NULL,
   `price` int(11) NOT NULL,
-  `image` varchar(300) NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '0'
+  `image` varchar(500) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -109,12 +105,23 @@ CREATE TABLE `item` (
 --
 
 INSERT INTO `item` (`im_id`, `i_name`, `category`, `price`, `image`, `status`) VALUES
-(1, 'Veg 1', 'veg', 10, 'img/item/2018-05-15 03-48-46_veg1.jpg', 0),
-(2, 'Veg 2', 'veg', 20, 'img/item/2018-05-15 03-49-08_veg2.jpg', 0),
-(3, 'Non Veg 1', 'non-veg', 50, 'img/item/2018-05-15 03-50-02_nonveg1.jpg', 0),
-(4, 'Non Veg 2', 'non-veg', 40, 'img/item/2018-05-15 03-50-18_nonveg2.jpg', 0),
-(5, 'Other 1', 'other', 100, 'img/item/2018-05-15 03-50-49_other1.jpg', 0),
-(6, 'Other 2', 'other', 150, 'img/item/2018-05-15 03-51-17_other2.jpg', 0);
+(1, 'Palak Paneer', 'veg', 140, 'img/item/2018-05-15 03-48-46_veg1.jpg', 1),
+(2, 'Veg Briyani', 'veg', 50, 'img/item/2018-05-15 03-49-08_veg2.jpg', 1),
+(4, 'Chicken Leg Piece', 'non-veg', 40, 'img/item/2018-05-15 03-50-18_nonveg2.jpg', 1),
+(10, 'Singra', 'veg', 10, 'img/item/2018-05-28 07-46-47_chingra.jpg', 1),
+(11, 'Veg Roll', 'veg', 50, 'img/item/2018-05-28 12-21-54_veg_roll.jpg', 1),
+(12, 'Shahi Paneer', 'veg', 180, 'img/item/2018-05-28 12-24-56_paneer.gif', 1),
+(13, 'Dal Makhani', 'veg', 120, 'img/item/2018-05-28 12-26-36_dal-makhani_620x350_41478501912.jpg', 1),
+(14, 'Chicken Momo', 'non-veg', 50, 'img/item/2018-05-28 12-37-02_chicken_momo.jpeg', 1),
+(15, 'Chicken Butter Masala', 'non-veg', 190, 'img/item/2018-05-28 12-38-13_Butter_chicken_recipe.jpg', 1),
+(16, 'Roasted Pork', 'non-veg', 100, 'img/item/2018-05-28 12-39-58_pork.jpg', 1),
+(17, 'Chicken Tandoori', 'non-veg', 220, 'img/item/2018-05-28 12-41-08_whole-chicken-13.jpg', 1),
+(18, 'Chicken Burger', 'other', 80, 'img/item/2018-05-28 12-54-34_burger.jpg', 1),
+(19, 'Cheese Pizza', 'other', 160, 'img/item/2018-05-28 12-55-14_pizza.gif', 1),
+(20, 'Chicken Popcorn', 'other', 70, 'img/item/2018-05-28 12-55-57_chicken-popcorn1.jpg', 1),
+(21, 'Pepsi Can', 'other', 35, 'img/item/2018-05-28 12-56-38_pepsi_can_feature.jpg', 1),
+(22, 'Coca-cola Bottle(2lt)', 'other', 90, 'img/item/2018-05-28 12-57-55_coca-cola-soft-drink.jpg', 1),
+(23, 'Kinley Mineral Water Bottle(1lt)', 'other', 10, 'img/item/2018-05-28 12-59-13_bottle.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -132,10 +139,7 @@ CREATE TABLE `order` (
 --
 
 INSERT INTO `order` (`o_id`, `c_id`) VALUES
-(1, 1),
-(4, 1),
-(5, 6),
-(6, 6);
+(9, 9);
 
 -- --------------------------------------------------------
 
@@ -156,13 +160,8 @@ CREATE TABLE `order_master` (
 --
 
 INSERT INTO `order_master` (`om_id`, `o_id`, `im_id`, `quantity`, `date`) VALUES
-(1, 1, 5, 2, '2018-05-15'),
-(2, 1, 6, 2, '2018-05-15'),
-(5, 4, 1, 2, '2018-05-15'),
-(6, 4, 2, 1, '2018-05-15'),
-(7, 5, 3, 2, '2018-05-20'),
-(8, 5, 2, 2, '2018-05-20'),
-(9, 6, 3, 2, '2018-05-20');
+(13, 9, 17, 1, '2018-05-28'),
+(14, 9, 2, 2, '2018-05-28');
 
 -- --------------------------------------------------------
 
@@ -181,12 +180,8 @@ CREATE TABLE `todays_special` (
 --
 
 INSERT INTO `todays_special` (`t_id`, `im_id`, `date`) VALUES
-(1, 1, '0000-00-00'),
-(2, 2, '0000-00-00'),
-(3, 1, '0000-00-00'),
-(4, 2, '0000-00-00'),
-(5, 3, '0000-00-00'),
-(6, 1, '0000-00-00');
+(14, 12, '2018-05-28'),
+(15, 16, '2018-05-28');
 
 --
 -- Indexes for dumped tables
@@ -257,37 +252,37 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `bill_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `bill_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `im_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `im_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `o_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `o_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `order_master`
 --
 ALTER TABLE `order_master`
-  MODIFY `om_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `om_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `todays_special`
 --
 ALTER TABLE `todays_special`
-  MODIFY `t_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `t_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
